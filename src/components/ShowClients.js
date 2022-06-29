@@ -1,9 +1,9 @@
 import React ,{useEffect, useState} from 'react'
 import axios from 'axios'
-//import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
-const endpoint = 'http://localhost:8000/api/'
+const endpoint = 'http://localhost:8000/api'
 
 const ShowClients = () => {
     const [clientes, setClientes] = useState([])   
@@ -14,7 +14,7 @@ const ShowClients = () => {
 
     const getAllClients = async ()=>{
         const response  = await axios.get(`${endpoint}/clientes`)
-        setClientes(response)
+        setClientes(response.data)
     }
 
     const deleteClient = async (id)=>{
@@ -25,7 +25,7 @@ const ShowClients = () => {
   return (
     <div>
         <div className='d-grid grap-2'>
-            <link to="/create" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Create</link>
+            <Link to="/create" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Create</Link>
         </div>
         <table className='table table-striped'>
             <thead className='bg-primary text-white'>
@@ -45,7 +45,7 @@ const ShowClients = () => {
                         <td>{cliente.email}</td>
                         <td>{cliente.address}</td>
                         <td>
-                            <link to={`/edit/${cliente.id}`} className='btn btn-warning'>Editar</link>
+                            <Link to={`/edit/${cliente.id}`} className='btn btn-warning'>Editar</Link>
                             <button onClick={ () => deleteClient(cliente.id)} className="btn btn-danger">Eliminar</button>
                         </td>
                     </tr>
