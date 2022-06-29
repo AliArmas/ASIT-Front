@@ -66,7 +66,7 @@ const CreateClient = () => {
                     className='form-control'
                 />
             </div>
-            <button type="submit" className='btn btn-primary'>Crear</button>
+            <button type="submit" className='btn btn-primary btn-lg'>Crear</button>
         </form>
     </div>
   )
