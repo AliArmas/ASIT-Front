@@ -35,6 +35,8 @@ const ShowClients = () => {
                     <th>Correo</th>
                     <th>Direccion</th>
                     <th>Acciones</th>
+                    <th></th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -46,8 +48,8 @@ const ShowClients = () => {
                         <td>{cliente.address}</td>
                         <td>
                             <Link to={`/edit/${cliente.id}`} className='btn btn-warning'>Editar</Link>
-                            <button onClick={ () => deleteClient(cliente.id)} className="btn btn-danger">Eliminar</button>
                         </td>
+                        <td> <button onClick={ () => deleteClient(cliente.id)} className="btn btn-danger">Eliminar</button></td>
                     </tr>
 
                 ))}
